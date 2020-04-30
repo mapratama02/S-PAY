@@ -1,0 +1,10 @@
+DELIMITER $$
+
+CREATE TRIGGER `history_pembayaran` AFTER INSERT ON `pembayaran`
+FOR EACH ROW BEGIN
+INSERT INTO `log_transaksi` VALUES(new.id_pembayaran, new.id_petugas, new.id_pembayaran, new.nisn, new.tgl_bayar, new.bulan_dibayar, new.tahun_dibayar, new.id_spp, new.jumlah_bayar);
+
+END $$
+
+
+0023541265 - 154673
